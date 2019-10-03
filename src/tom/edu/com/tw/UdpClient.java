@@ -6,13 +6,13 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class main
+public class UdpClient
 {
     public static void main(String[] args)
     {
         try
         {
-            final int PORT = 8000;
+            final int PORT = 6000;
             DatagramSocket ds = new DatagramSocket();
             InetAddress addr = InetAddress.getByName("10.2.8.162");
             String s;
@@ -25,7 +25,11 @@ public class main
                 ds.send(dp);
             }
             while (!s.equals(""));
+            System.out.println("結束!");
             ds.close();
-        }catch (Exception e){}
+        }catch (Exception e)
+        {
+            System.out.println("UdpClient fails.");
+        }
     }
 }
